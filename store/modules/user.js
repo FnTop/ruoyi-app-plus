@@ -40,14 +40,15 @@ const user = {
   actions: {
     // 登录
     Login({ commit }, userInfo) {
-      const username = userInfo.username.trim()
-      const password = userInfo.password
-      const code = userInfo.code
-      const uuid = userInfo.uuid
+      // const username = userInfo.username.trim()
+      // const password = userInfo.password
+      // const code = userInfo.code
+      // const uuid = userInfo.uuid
       return new Promise((resolve, reject) => {
-        login(username, password, code, uuid).then(res => {
-          setToken(res.token)
-          commit('SET_TOKEN', res.token)
+        login(userInfo).then(res => {
+		  res=res.data
+          setToken(res.access_token)
+          commit('SET_TOKEN', res.access_token)
           resolve()
         }).catch(error => {
           reject(error)
@@ -59,12 +60,14 @@ const user = {
     GetInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
         getInfo().then(res => {
-          const user = res.user
+          const user = res.data.user
+          const roles = res.data.roles
+          const permissions = res.data.permissions
           const avatar = (user == null || user.avatar == "" || user.avatar == null) ? require("@/static/images/profile.jpg") : baseUrl + user.avatar
           const username = (user == null || user.userName == "" || user.userName == null) ? "" : user.userName
-          if (res.roles && res.roles.length > 0) {
-            commit('SET_ROLES', res.roles)
-            commit('SET_PERMISSIONS', res.permissions)
+          if (roles && roles.length > 0) {
+            commit('SET_ROLES', roles)
+            commit('SET_PERMISSIONS', permissions)
           } else {
             commit('SET_ROLES', ['ROLE_DEFAULT'])
           }

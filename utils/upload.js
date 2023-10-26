@@ -6,6 +6,7 @@ import { toast, showConfirm, tansParams } from '@/utils/common'
 
 let timeout = 10000
 const baseUrl = config.baseUrl
+const clientId = config.clientId
 
 const upload = config => {
   // 是否需要设置 token
@@ -14,6 +15,7 @@ const upload = config => {
   if (getToken() && !isToken) {
     config.header['Authorization'] = 'Bearer ' + getToken()
   }
+  config.header['clientid']=clientId
   // get请求映射params参数
   if (config.params) {
     let url = config.url + '?' + tansParams(config.params)

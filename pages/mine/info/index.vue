@@ -28,7 +28,8 @@
     methods: {
       getUser() {
         getUserProfile().then(response => {
-          this.user = response.data
+			response=response.data
+          this.user = response.user
           this.roleGroup = response.roleGroup
           this.postGroup = response.postGroup
         })

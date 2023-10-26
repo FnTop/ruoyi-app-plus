@@ -77,7 +77,8 @@
     methods: {
       getUser() {
         getUserProfile().then(response => {
-          this.user = response.data
+			response=response.data
+          this.user = response.user
         })
       },
       submit(ref) {
