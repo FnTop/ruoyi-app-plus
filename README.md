@@ -1,6 +1,3 @@
-<p align="center">
-	<img alt="logo" src="https://oscimg.oschina.net/oscnet/up-43e3941654fa3054c9684bf53d1b1d356a1.png">
-</p>
 <h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">RuoYi-App-Plus</h1>
 <h3 align="center">RuoYi-Vue-Plus 与 RuoYi-Cloud-Plus 移动端底座</h4>
 <div style="display: flex; justify-content: center;">  
