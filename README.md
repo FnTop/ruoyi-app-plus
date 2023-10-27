@@ -9,7 +9,7 @@
 </div>
 
 <div style="display: flex; justify-content: center;">  
-    <img style="margin: 10px 8px" src="https://img.shields.io/badge/version-5.x-green" alt="Fn">
+    <img style="margin: 10px 8px" src="https://img.shields.io/badge/version-4.x-green" alt="Fn">
     <img style="margin: 10px 8px" src="https://img.shields.io/badge/author-4n-blue.svg" alt="Fn">
     <img style="margin: 10px 8px" src="https://img.shields.io/badge/license-MIT-green" alt="Apache2.0">
 </div>
