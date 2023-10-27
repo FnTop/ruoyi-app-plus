@@ -3,9 +3,12 @@ import config from '@/config'
 import { getToken } from '@/utils/auth'
 import errorCode from '@/utils/errorCode'
 import { toast, showConfirm, tansParams } from '@/utils/common'
+import { encryptBase64, encryptWithAes, generateAesKey } from '@/utils/crypto';
+import { encrypt } from '@/utils/jsencrypt';
 
 let timeout = 10000
 const baseUrl = config.baseUrl
+const clientId = config.clientId
 
 const request = config => {
   // 是否需要设置 token
@@ -14,11 +17,21 @@ const request = config => {
   if (getToken() && !isToken) {
     config.header['Authorization'] = 'Bearer ' + getToken()
   }
+  config.header['clientid']=clientId
   // get请求映射params参数
   if (config.params) {
     let url = config.url + '?' + tansParams(config.params)
     url = url.slice(0, -1)
     config.url = url
+  }
+  // 是否需要加密
+  const isEncrypt = (config.headers || {}).isEncrypt === true;
+  // 当开启参数加密
+  if (isEncrypt && (config.method === 'post' || config.method === 'put')) {
+    // 生成一个 AES 密钥
+    const aesKey = generateAesKey();
+    config.header['encrypt-key'] = encrypt(encryptBase64(aesKey));
+    config.data = typeof config.params === 'object' ? encryptWithAes(JSON.stringify(config.params), aesKey) : encryptWithAes(config.params, aesKey);
   }
   return new Promise((resolve, reject) => {
     uni.request({

@@ -1,9 +1,9 @@
 <template>
   <view class="normal-login-container">
     <view class="logo-content align-center justify-center flex">
-      <image style="width: 100rpx;height: 100rpx;" :src="globalConfig.appInfo.logo" mode="widthFix">
+     <image style="width: 100rpx;height: 100rpx;" :src="globalConfig.appInfo.logo" mode="widthFix">
       </image>
-      <text class="title">若依移动端登录</text>
+      <text class="title">ruoyi-vue-plus-4.x</text>
     </view>
     <view class="login-form-content">
       <view class="input-item flex align-center">
@@ -78,6 +78,7 @@
       // 获取图形验证码
       getCode() {
         getCodeImg().then(res => {
+		  res=res.data
           this.captchaEnabled = res.captchaEnabled === undefined ? true : res.captchaEnabled
           if (this.captchaEnabled) {
             this.codeUrl = 'data:image/gif;base64,' + res.img

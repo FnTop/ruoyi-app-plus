@@ -46,6 +46,7 @@ const user = {
       const uuid = userInfo.uuid
       return new Promise((resolve, reject) => {
         login(username, password, code, uuid).then(res => {
+		  res=res.data
           setToken(res.token)
           commit('SET_TOKEN', res.token)
           resolve()
@@ -59,6 +60,7 @@ const user = {
     GetInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
         getInfo().then(res => {
+		  res=res.data
           const user = res.user
           const avatar = (user == null || user.avatar == "" || user.avatar == null) ? require("@/static/images/profile.jpg") : baseUrl + user.avatar
           const username = (user == null || user.userName == "" || user.userName == null) ? "" : user.userName
