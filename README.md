@@ -1,18 +1,25 @@
 <h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">RuoYi-App-Plus</h1>
 <hr />
 <h3 align="center">RuoYi-Vue-Plus 与 RuoYi-Cloud-Plus 移动端底座</h4>
-<br />
+
 <div style="display: flex; justify-content: center;">  
-    <img style="margin: 5px 3px" src="https://gitee.com/FnTop/RuoYi-App-Plus/badge/star.svg?theme=light" alt="Fn">
-    <img style="margin: 5px 3px" src="https://gitee.com/FnTop/RuoYi-App-Plus/badge/fork.svg?theme=dark" alt="Fn">
+    <img style="margin: 10px 8px" src="https://gitee.com/FnTop/RuoYi-App-Plus/badge/star.svg?theme=light" alt="Fn">
+    <img style="margin: 10px 8px" src="https://gitee.com/FnTop/RuoYi-App-Plus/badge/fork.svg?theme=dark" alt="Fn">
 
 </div>
 
 <div style="display: flex; justify-content: center;">  
-    <img style="margin: 5px 3px" src="https://img.shields.io/badge/Plus-1.0.0-green" alt="Fn">
-    <img style="margin: 5px 3px" src="https://img.shields.io/badge/Author-4n-blue.svg" alt="Fn">
-    <img style="margin: 5px 3px" src="https://img.shields.io/badge/license-MIT-green" alt="Apache2.0">
+    <img style="margin: 10px 8px" src="https://img.shields.io/badge/version-5.x-green" alt="Fn">
+    <img style="margin: 10px 8px" src="https://img.shields.io/badge/author-4n-blue.svg" alt="Fn">
+    <img style="margin: 10px 8px" src="https://img.shields.io/badge/license-MIT-green" alt="Apache2.0">
 </div>
+
+## 版本对应关系
+
+| App                | 后端ui | 后端java | 微服务 |
+|--------------------|----|------|-----|
+| [ruoyi-app-plus-5.x](https://gitee.com/FnTop/RuoYi-App-Plus) | [plus-ui](https://gitee.com/JavaLionLi/plus-ui)   | [ruoyi-vue-plus-5.x](https://gitee.com/dromara/RuoYi-Vue-Plus)     | [ruoyi-cloud-plus-2.x](https://gitee.com/dromara/RuoYi-Cloud-Plus)    |
+| [ruoyi-app-plus-4.x](https://gitee.com/FnTop/RuoYi-App-Plus) | [ruoyi-ui-vue3](https://gitee.com/dromara/RuoYi-Vue-Plus)   | [ruoyi-vue-plus-4.x](https://gitee.com/dromara/RuoYi-Vue-Plus)     | [ruoyi-cloud-plus-1.x](https://gitee.com/dromara/RuoYi-Cloud-Plus)    |
 
 ## 平台简介
 
