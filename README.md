@@ -29,6 +29,7 @@
 * 应用框架基于[uniapp](https://uniapp.dcloud.net.cn/)，支持小程序、H5、Android和IOS。
 * 前端组件采用[uni-ui](https://github.com/dcloudio/uni-ui)，全端兼容的高性能UI框架。
 
+小程序导入 : D:/xxxx/RuoYi-App-Plus/unpackage/dist/dev/mp-weixin
 
 ## 技术文档
 
