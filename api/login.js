@@ -58,3 +58,14 @@ export function getCodeImg() {
     timeout: 20000
   })
 }
+// 列出租户
+export function listTenant() {
+  return request({
+    url: '/auth/tenant/list',
+    headers: {
+      isToken: false
+    },
+    method: 'get',
+    timeout: 20000
+  })
+}
