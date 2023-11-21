@@ -6,6 +6,13 @@
 			<text class="title">RuoYi-App-Plus</text>
 		</view>
 		<view class="login-form-content">
+			
+			<uni-data-select placeholder="请选择租户"
+				  v-model="loginForm.tenantId"
+				  :localdata="tenantList"
+				  @change="change"
+				  v-if="isShow"
+				></uni-data-select>
 			<view class="input-item flex align-center">
 				<view class="iconfont icon-user icon"></view>
 				<input v-model="loginForm.username" class="input" type="text" placeholder="请输入账号" maxlength="30" />
@@ -40,7 +47,7 @@
 
 <script>
 	import {
-		getCodeImg
+		getCodeImg,listTenant
 	} from '@/api/login'
 
 	export default {
@@ -51,10 +58,12 @@
 				// 用户注册开关
 				register: false,
 				globalConfig: getApp().globalData.config,
+				tenantList:[],
+				isShow:false,
 				loginForm: {
 					clientId: getApp().globalData.config.clientId,
 					grantType: getApp().globalData.config.grantType,
-					tenantId: getApp().globalData.config.tenantId,
+					tenantId: '',
 					username: "admin",
 					password: "admin123",
 					code: "",
@@ -64,8 +73,12 @@
 		},
 		created() {
 			this.getCode()
+			this.listTenant()
 		},
 		methods: {
+			change(){
+				
+			},
 			// 用户注册
 			handleUserRegister() {
 				this.$tab.redirectTo(`/pages/register`)
@@ -79,6 +92,25 @@
 			handleUserAgrement() {
 				let site = this.globalConfig.appInfo.agreements[1]
 				this.$tab.navigateTo(`/pages/common/webview/index?title=${site.title}&url=${site.url}`)
+			},
+			listTenant() {
+				listTenant().then(res => {
+					if(res.code===200){
+						//解析后台返回的data数据 res.data.tenantEnabled
+						this.tenantList=res.data.voList
+						if(res.data.voList.length>0){
+							this.isShow=true
+							this.loginForm.tenantId=this.tenantList[0].tenantId
+							let list=res.data.voList
+							for (var i = 0; i < list.length; i++) {
+								this.tenantList[i].value=list[i].tenantId
+								this.tenantList[i].text=list[i].companyName
+							}
+							
+						}
+					}
+					
+				})
 			},
 			// 获取图形验证码
 			getCode() {
