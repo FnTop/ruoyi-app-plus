@@ -46,7 +46,7 @@
 
 <table>
     <tr>
-        <td><img src="static/iamges/mtl.png"/></td>
+        <td><img src="static/images/mtl.png"/></td>
         <td><img src="https://oscimg.oschina.net/oscnet/up-3ea20e447ac621a161e395fb53ccc683d84.png"/></td>
         <td><img src="https://oscimg.oschina.net/oscnet/up-a6f23cf9a371a30165e135eff6d9ae89a9d.png"/></td>
     </tr>
